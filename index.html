@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌸 Cách Đọc Bức Thư Bí Ẩn 🌸</title>
+  <style>
+    body {
+      background-color: #fff7f0;
+      color: #5c3c3c;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      padding: 20px 10px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e45d7d;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      max-width: 400px;
+      background-color: #ffe4ec;
+      padding: 20px;
+      margin: 0 auto;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .step-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #d43f6e;
+      margin-bottom: 10px;
+    }
+
+   .step-desc {
+  font-size: 1.2rem;
+  color: #000000;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);  /* Làm chữ nổi nhẹ */
+}
+
+
+
+    .step-img {
+      width: 100%;
+      border-radius: 12px;
+      border: 3px dashed #ffcad4;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .step-img:hover {
+      transform: scale(1.03);
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-prev {
+      background-color: #ffd6e0;
+      color: #a05260;
+    }
+
+    .btn-prev:hover {
+      background-color: #ffc2d1;
+    }
+
+    .btn-next {
+      background-color: #ff90b3;
+      color: white;
+    }
+
+    .btn-next:hover {
+      background-color: #ff75a0;
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 Cách Đọc Bức Thư Bí Ẩn 💌</h1>
+
+  <div class="card">
+    <div class="step-title" id="step-title">Bước 1: Lấy que diêm trong nụ hoa hồng</div>
+    <div class="step-desc" id="step-desc">
+      Nhẹ nhàng mở nụ hoa hồng, bạn sẽ thấy một que diêm nhỏ xinh giấu bên trong 💐
+    </div>
+    <img src="img1.png" alt="Bước 1" class="step-img" id="step-img" />
+
+    <div class="btn-group">
+      <button class="btn btn-prev" onclick="prevStep()" id="btn-prev" disabled>⬅️ Trước</button>
+      <button class="btn btn-next" onclick="nextStep()" id="btn-next">Tiếp ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    const steps = [
+      {
+        title: "Bước 1: Lấy que diêm trong nụ hoa hồng",
+        desc: "Nhẹ nhàng mở nụ hoa hồng, bạn sẽ thấy một que diêm nhỏ xinh giấu bên trong 💐",
+        image: "img1.png"
+      },
+      {
+        title: "Bước 2: Đốt lớp giấy bọc thư",
+        desc: "Dùng que diêm đốt nhẹ phần giấy trắng phía trước lá thư. Sẽ có điều kỳ diệu xảy ra 🔥",
+        image: "img3.png"
+      },
+      {
+        title: "Bước 3: Quét mã QR",
+        desc: "Một mã QR sẽ hiện ra ✨ Hãy dùng điện thoại quét để khám phá nội dung bí mật!",
+        image: "img4.png"
+      }
+    ];
+
+    let currentStep = 0;
+
+    function updateStep() {
+      const step = steps[currentStep];
+      document.getElementById("step-title").textContent = step.title;
+      document.getElementById("step-desc").textContent = step.desc;
+      document.getElementById("step-img").src = step.image;
+      document.getElementById("btn-prev").disabled = currentStep === 0;
+      document.getElementById("btn-next").disabled = currentStep === steps.length - 1;
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStep();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        updateStep();
+      }
+    }
+  </script>
+</body>
+</html>
